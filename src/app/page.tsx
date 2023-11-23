@@ -1,7 +1,13 @@
+import MaxWidthWrapper from "@/utils/max-with-wrapper";
+
 export default function Home() {
   return (
-    <div className="">
-      <h1>Hello</h1>
-    </div>
+    <>
+      <MaxWidthWrapper>
+        <div className=" bg-white dark:bg-inherit">
+          <h1>Hello</h1>
+        </div>
+      </MaxWidthWrapper>
+    </>
   );
 }

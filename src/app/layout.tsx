@@ -4,6 +4,8 @@ import "./globals.css";
 
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/utils/theme-provider";
+import Navbar from "@/components/shared/nav-bar";
+import { ModeToggle } from "@/utils/mode-toggle";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,7 +27,15 @@ export default function RootLayout({
           defaultTheme="dark"
           enableSystem={false}
         >
-          {children}
+          <div>
+            <Navbar />
+          </div>
+          <main className="relative h-full">
+            {children}
+            <div className="fixed top-1/2">
+              <ModeToggle />
+            </div>
+          </main>
         </ThemeProvider>
       </body>
     </html>
