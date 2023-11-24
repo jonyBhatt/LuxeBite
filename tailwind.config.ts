@@ -15,6 +15,20 @@ module.exports = {
         "2xl": "1400px",
       },
     },
+    screens: {
+      xs: "400px",
+      sm: "640px",
+      // => @media (min-width: 640px) { ... }
+
+      md: "768px",
+      // => @media (min-width: 768px) { ... }
+
+      lg: "1024px",
+      // => @media (min-width: 1024px) { ... }
+
+      xl: "1280px",
+      // => @media (min-width: 1280px) { ... }
+    },
     extend: {
       colors: {
         border: "hsl(var(--border))",
@@ -28,7 +42,7 @@ module.exports = {
           foreground: "hsl(var(--primary-foreground))",
         },
         secondary: {
-          DEFAULT: "hsl(var(--secondary))",
+          DEFAULT: "#0E2954",
           foreground: "hsl(var(--secondary-foreground))",
         },
         destructive: {
@@ -40,7 +54,7 @@ module.exports = {
           foreground: "hsl(var(--muted-foreground))",
         },
         accent: {
-          DEFAULT: "hsl(var(--accent))",
+          DEFAULT: "#84A7A1",
           foreground: "hsl(var(--accent-foreground))",
         },
         popover: {
@@ -52,8 +66,9 @@ module.exports = {
           foreground: "hsl(var(--card-foreground))",
         },
       },
-      screens: {
-        xs: "400px",
+      fontFamily: {
+        Inter: ["var(--font-Inter)"],
+        Smooch: ["var(--font-Smooch)"],
       },
       borderRadius: {
         lg: "var(--radius)",

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Smooch_Sans } from "next/font/google";
 import "./globals.css";
 
 import { cn } from "@/lib/utils";
@@ -7,7 +7,8 @@ import { ThemeProvider } from "@/utils/theme-provider";
 import Navbar from "@/components/shared/nav-bar";
 import { ModeToggle } from "@/utils/mode-toggle";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], variable: "--font-Inter" });
+const smooch = Smooch_Sans({ subsets: ["latin"], variable: "--font-Smooch" });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -21,7 +22,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={cn(inter.className, "h-full")}>
+      <body className={cn(inter.variable, smooch.variable, "h-full")}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
@@ -30,7 +31,7 @@ export default function RootLayout({
           <div>
             <Navbar />
           </div>
-          <main className="relative h-full">
+          <main className="relative ">
             {children}
             <div className="fixed top-1/2">
               <ModeToggle />

@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
- 
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -48,12 +48,33 @@
     --ring: 263.4 70% 50.4%;
   }
 }
- 
+
 @layer base {
   * {
     @apply border-border;
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .bg-radial {
+    background: rgb(0, 0, 0);
+    background: radial-gradient(
+      circle,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(251, 218, 248, 1) 0%,
+      rgba(255, 255, 255, 1) 100%
+    );
+  }
+
+  .pink__gradient {
+    background: linear-gradient(90deg, #f4c4f3 0%, #fc67fa 100%);
+    filter: blur(100px);
+  }
+  .white__gradient {
+    background: rgba(255, 255, 255, 0.6);
+    filter: blur(150px);
   }
 }
