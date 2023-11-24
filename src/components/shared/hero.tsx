@@ -23,7 +23,7 @@ const Hero = () => {
             className="object-cover object-center z-10"
           />
         </div>
-        <div className=" w-[40%] h-[35%] -z-10   absolute top-0 pink__gradient  " />
+        <div className=" w-[40%] h-[35%] -z-10   absolute top-0 red__gradient  " />
         <div className=" w-[40%] h-[35%] -z-10  absolute top-[100%] right-0 white__gradient  " />
       </div>
     </div>
