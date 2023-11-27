@@ -1,4 +1,6 @@
-import WorkCard from "../card/work-card";
+
+
+import { WorkCard } from "@/components/card/home-card";
 import { WorksData } from "@/lib/data/works-data";
 
 const HowItWorks = () => {

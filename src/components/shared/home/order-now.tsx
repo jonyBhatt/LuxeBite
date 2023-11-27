@@ -1,6 +1,7 @@
 "use client";
-import { Button } from "../ui/button";
-import SearchBar from "./search-bar";
+
+import { Button } from "@/components/ui/button";
+import SearchBar from "../search-bar";
 import { motion } from "framer-motion";
 const OrderNow = () => {
   return (
