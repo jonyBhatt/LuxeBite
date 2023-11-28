@@ -21,7 +21,7 @@ const BlogsCards = ({
     see
 }:TBlogsCards) => {
   return (
-    <div className="flex lg:w-[700px] flex-col lg:flex-row items-start md:items-center gap-4">
+    <div className="flex lg:w-[700px] flex-col  items-start md:items-center gap-4">
       <div className="relative">
         <Image
           src={imageSrc}

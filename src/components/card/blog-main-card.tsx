@@ -14,7 +14,7 @@ import { CalenderDays } from "../../../public/svg/calender-days";
 
 const BlogMainCard = () => {
   return (
-    <Card className="dark:bg-[#060f275a] bg-gray-200 w-[500px]">
+    <Card className="dark:bg-[#060f275a] bg-gray-200 md:w-[500px] sm:w-[200px]">
       <div className="relative p-5 ">
         <Image
           src="/image/event1.jpg"

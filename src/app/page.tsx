@@ -2,6 +2,7 @@ import Image from "next/image";
 
 import {
   Blogs,
+  Footer,
   Hero,
   HowItWorks,
   OrderNow,
@@ -35,6 +36,7 @@ export default function Home() {
           <SubsCribe />
         </div>
       </MaxWidthWrapper>
+      <Footer />
     </>
   );
 }
