@@ -13,7 +13,7 @@ const HowItWorks = () => {
           tellus in metus vulputate eu scelerisque felis.
         </p>
       </div>
-      <div className="flex items-center flex-col md:flex-row gap-8 md:gap-16 md:-ml-10  justify-between ">
+      <div className="flex items-center flex-col md:flex-row gap-8 md:gap-16 md:-ml-10 lg:-ml-0  justify-between ">
         {WorksData.map((data) => (
           <WorkCard
             key={data.id}

@@ -26,8 +26,8 @@ const BlogsCards = ({
         <Image
           src={imageSrc}
           alt="event2"
-          width={500}
-          height={500}
+          width={300}
+          height={300}
           className="object-cover rounded-3xl"
         />
       </div>
