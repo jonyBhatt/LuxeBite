@@ -1,13 +1,15 @@
+import Image from "next/image";
+
 import {
   Blogs,
   Hero,
   HowItWorks,
   OrderNow,
+  SubsCribe,
   TopRestaurants,
 } from "@/components/shared/home";
 
 import MaxWidthWrapper from "@/utils/max-with-wrapper";
-import Image from "next/image";
 
 export default function Home() {
   return (
@@ -30,6 +32,7 @@ export default function Home() {
             />
           </div>
           <Blogs />
+          <SubsCribe />
         </div>
       </MaxWidthWrapper>
     </>

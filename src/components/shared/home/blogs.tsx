@@ -10,12 +10,12 @@ const Blogs = () => {
           Latest news and events
         </h2>
       </div>
-      <div className="flex flex-col md:flex-row justify-between items-start gap-4 col-span-2 mt-7">
+      <div className="flex flex-col lg:flex-row justify-between items-start gap-4 col-span-2 mt-7">
         {/** Event main card */}
         <div className=" p-4 rounded-md shadow-xl bg-gray-200 dark:bg-inherit dark:shadow-none">
           <BlogMainCard />
         </div>
-        <div className="flex flex-col items-start ml-6 md:ml-0 justify-center mt-8  gap-8">
+        <div className="flex flex-col items-start ml-6 lg:ml-0 justify-start mt-8  gap-8">
           {EventData.map((event) => (
             <BlogsCards
               key={event.id}
