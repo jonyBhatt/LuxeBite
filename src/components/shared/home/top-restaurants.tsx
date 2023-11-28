@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const TopRestaurants = () => {
   return (
-    <div className="container mx-auto pt-20">
+    <div className="container mx-auto pt-20 relative">
       <div className=" grid grid-cols-1 gap-4 sm:grid-cols-2 justify-items-start">
         <div className="flex flex-col justify-start items-start col-span-2 md:col-span-1 w-full gap-4">
           <h1 className="text-5xl  font-Inter font-bold">
@@ -19,7 +19,7 @@ const TopRestaurants = () => {
         {restaurantData.map((restaurant) => (
           <div
             key={restaurant.id}
-            className="bg-gray-50 col-span-2 md:col-span-1 w-[350px] md:w-full gap-y-7 md:gap-y-5  dark:bg-secondary p-6 rounded-md"
+            className="bg-gray-50 col-span-2 md:col-span-1 w-[350px] md:w-full gap-y-7 md:gap-y-5  dark:bg-[#060f275a] hover:ring-1 p-6 rounded-md"
           >
             <RestaurantCard
               title={restaurant.title}

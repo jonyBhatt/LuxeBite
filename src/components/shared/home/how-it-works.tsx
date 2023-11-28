@@ -1,11 +1,9 @@
-
-
 import { WorkCard } from "@/components/card/home-card";
 import { WorksData } from "@/lib/data/works-data";
 
 const HowItWorks = () => {
   return (
-    <div className="flex flex-col gap-8 py-20">
+    <div className="flex flex-col gap-8 py-20 relative">
       <div>
         <h1 className="text-5xl font-bold text-center font-Inter">
           How It Works
