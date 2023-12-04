@@ -73,12 +73,16 @@
     background: linear-gradient(90deg, #f4c4f3 0%, #fc67fa 100%);
     filter: blur(250px);
   }
-   .red__gradient {
-    background: linear-gradient(90deg, #B91372 0%, #fc67fa 100%);
+  .red__gradient {
+    background: linear-gradient(90deg, #b91372 0%, #fc67fa 100%);
     filter: blur(100px);
   }
   .white__gradient {
     background: rgba(255, 255, 255, 0.6);
     filter: blur(150px);
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-fuchsia-800 to-purple-500 bg-clip-text text-transparent;
   }
 }
