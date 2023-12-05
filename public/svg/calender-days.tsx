@@ -11,8 +11,8 @@ export const CalenderDays = ({ className }: { className?: string }) => {
       fill="none"
       stroke="currentColor"
       stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeLinecap="round"
+      strokeLinejoin="round"
       className={cn(className, "lucide lucide-calendar-days")}
     >
       <rect width="18" height="18" x="3" y="4" rx="2" ry="2" />

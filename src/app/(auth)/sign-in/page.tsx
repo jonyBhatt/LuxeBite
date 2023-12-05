@@ -17,9 +17,17 @@ const SignIn = () => {
               Luxiebite
             </span>{" "}
           </h2>
-          <span className="text-center text-muted-foreground font-Inter text-sm font-light">
-            Please Log In to your account
-          </span>
+          <div className="flex justify-between items-center mt-4">
+            <span className="text-center text-muted-foreground font-Inter text-sm font-light">
+              Please Log In to your account
+            </span>
+            <Link
+              href="/magic-link"
+              className="text-primary transition-all duration-200 hover:underline font-semibold font-Inter"
+            >
+              Login with magic link
+            </Link>
+          </div>
         </div>
         <div>
           <SignInForm />

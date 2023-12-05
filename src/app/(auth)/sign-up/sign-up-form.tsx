@@ -3,6 +3,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
+import axios from "axios";
 
 import { Button } from "@/components/ui/button";
 
@@ -17,11 +18,15 @@ import {
 
 import { Input } from "@/components/ui/input";
 import { signUpSchema } from "@/lib/validation/sign-up-validation";
+import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 const SignUpForm = () => {
+  const router= useRouter()
   const form = useForm<z.infer<typeof signUpSchema>>({
     resolver: zodResolver(signUpSchema),
     defaultValues: {
+      name:"",
       email: "",
       password: "",
     },
@@ -29,8 +34,18 @@ const SignUpForm = () => {
 
   // 2. Define a submit handler.
   async function onSubmit(values: z.infer<typeof signUpSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
+    try {
+      const res = await axios.post("/api/auth/signup", values);
+      if (res.status === 201) {
+        toast.success("User create successfully");
+      }
+
+      form.reset();
+      router.push("/sign-in")
+    } catch (error: any) {
+      console.log(error);
+      toast.error(error.message);
+    }
     console.log(values);
   }
 
@@ -93,8 +108,8 @@ const SignUpForm = () => {
                 <FormMessage />
               </FormItem>
             )}
-                  />
-                  
+          />
+
           <FormField
             control={form.control}
             name="confirm"
