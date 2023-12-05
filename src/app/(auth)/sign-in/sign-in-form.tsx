@@ -20,8 +20,10 @@ import {
 
 import { Input } from "@/components/ui/input";
 import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 const SignInForm = () => {
+  const router = useRouter();
   const form = useForm<z.infer<typeof signInSchema>>({
     resolver: zodResolver(signInSchema),
     defaultValues: {
@@ -48,6 +50,7 @@ const SignInForm = () => {
         console.log("sign in successful");
         toast.success("Login In");
       }
+      router.push("/");
 
       if (res?.error) {
         console.log(res?.error);

@@ -32,7 +32,13 @@ export const authOptions = {
             },
           });
 
-          return user;
+          if (user) {
+            console.log(user);
+
+            return user;
+          } else {
+            return null;
+          }
 
           // console.log(user);
         } catch (error: any) {
@@ -61,7 +67,6 @@ export const authOptions = {
   },
   callbacks: {
     async session({ session, token, user }) {
-      session.user = user;
       return session;
     },
     async jwt({ token, user, account }) {

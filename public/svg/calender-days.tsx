@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { cn } from "@/lib/utils";
 
 export const CalenderDays = ({ className }: { className?: string }) => {
@@ -10,7 +10,7 @@ export const CalenderDays = ({ className }: { className?: string }) => {
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      stroke-width="2"
+      strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
       className={cn(className, "lucide lucide-calendar-days")}
