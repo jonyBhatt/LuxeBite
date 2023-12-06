@@ -11,6 +11,7 @@ import { Navbar } from "@/components/shared";
 import AuthProvider from "@/utils/auth-provider";
 import toast, { Toaster } from "react-hot-toast";
 import { authOptions } from "@/utils/auth";
+import ClientProvider from "@/lib/query-client-provider";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-Inter" });
 const smooch = Smooch_Sans({ subsets: ["latin"], variable: "--font-Smooch" });
@@ -27,7 +28,7 @@ export default async function RootLayout({
 }) {
   const session = await getServerSession(authOptions);
   // console.log(session?.user);
-  
+
   return (
     <html lang="en">
       <body className={cn(inter.variable, smooch.variable, "h-full")}>
@@ -37,16 +38,18 @@ export default async function RootLayout({
           enableSystem={false}
         >
           <AuthProvider session={session}>
-            <div>
-              <Navbar />
-            </div>
-            <main className="relative ">
-              {children}
-              <Toaster />
-              <div className="fixed top-1/2">
-                <ModeToggle />
+            <ClientProvider>
+              <div>
+                <Navbar />
               </div>
-            </main>
+              <main className="relative ">
+                {children}
+                <Toaster />
+                <div className="fixed top-1/2">
+                  <ModeToggle />
+                </div>
+              </main>
+            </ClientProvider>
           </AuthProvider>
         </ThemeProvider>
       </body>

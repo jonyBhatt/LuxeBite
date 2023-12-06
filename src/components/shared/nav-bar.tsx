@@ -48,7 +48,7 @@ const Navbar = () => {
                 <span>Home</span>
                 <span>Products</span>
                 <span>Blog</span>
-                <span>About</span>
+                <Link href="/menu">Menu</Link>
               </div>
               <div className="flex items-center gap-4">
                 <div className="flex items-center">
@@ -57,18 +57,17 @@ const Navbar = () => {
                       <p className="font-bold text-white text-2xl font-Inter">
                         {session.user?.name}
                       </p>
-                      {/* <Button onClick={() => signOut()}>Log out</Button> */}
+                      <Button onClick={() => signOut()}>Log out</Button>
                     </>
                   ) : (
                     <>
                       <div className=" flex items-center">
                         <Link href="/sign-in">Login / Register</Link>
+                        <div className="mx-4 hidden md:flex  h-7 border-r border-r-gray-500" />
+                        <div className="hidden md:flex">Order Now</div>
                       </div>
                     </>
                   )}
-
-                  <div className="mx-4 hidden md:flex  h-7 border-r border-r-gray-500" />
-                  <div className="hidden md:flex">Order Now</div>
                 </div>
               </div>
             </div>
