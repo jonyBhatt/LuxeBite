@@ -1,4 +1,4 @@
-type Product = {
+export type ProductType = {
   id: number;
   title: string;
   desc?: string;
@@ -7,7 +7,7 @@ type Product = {
   options?: { title: string; additionalPrice: number }[];
 };
 
-type Products = Product[];
+type Products = ProductType[];
 
 export const featuredProducts: Products = [
   {
@@ -330,7 +330,7 @@ export const pizzas: Products = [
   },
 ];
 
-export const singleProduct: Product = {
+export const singleProduct: ProductType = {
   id: 1,
   title: "Sicilian",
   desc: "Ignite your taste buds with a fiery combination of spicy pepperoni, jalapeños, crushed red pepper flakes, and melted mozzarella cheese, delivering a kick with every bite.",
@@ -352,11 +352,11 @@ export const singleProduct: Product = {
   ],
 };
 
-type Menu = {
+export type Menu = {
   id: number;
   slug: string;
-  title: string;
-  desc?: string;
+  name: string;
+  description?: string;
   img?: string;
   color: string;
 }[];
@@ -365,24 +365,27 @@ export const menu: Menu = [
   {
     id: 1,
     slug: "pastas",
-    title: "Italian Pastas",
-    desc: "Savor the taste of perfection with our exquisite Italian handmade pasta menu.",
+    name: "Italian Pastas",
+    description:
+      "Savor the taste of perfection with our exquisite Italian handmade pasta menu.",
     img: "/image/temp/m1.png",
     color: "white",
   },
   {
     id: 2,
     slug: "burgers",
-    title: "Juicy Burgers",
-    desc: "Burger Bliss: Juicy patties, bold flavors, and gourmet toppings galore.",
+    name: "Juicy Burgers",
+    description:
+      "Burger Bliss: Juicy patties, bold flavors, and gourmet toppings galore.",
     img: "/image/temp/m2.png",
     color: "black",
   },
   {
     id: 3,
     slug: "pizzas",
-    title: "Cheesy Pizzas",
-    desc: "Pizza Paradise: Irresistible slices, mouthwatering toppings, and cheesy perfection.",
+    name: "Cheesy Pizzas",
+    description:
+      "Pizza Paradise: Irresistible slices, mouthwatering toppings, and cheesy perfection.",
     img: "/image/temp/m3.png",
     color: "white",
   },

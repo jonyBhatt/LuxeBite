@@ -1,3 +1,4 @@
+import MenuPage from "@/components/shared/menu/menu-page";
 import { menu } from "@/utils/data";
 import Link from "next/link";
 import React from "react";
@@ -5,7 +6,7 @@ import React from "react";
 const Menu = () => {
   return (
     <div className="p-4 lg:px-20 xl:px-40 h-[calc(100vh-6rem)] md:h-[calc(100vh-9rem)] flex flex-col md:flex-row items-center">
-      {menu.map((category) => (
+      {/* {menu.map((category) => (
         <Link
           href={`/menu/${category.slug}`}
           key={category.id}
@@ -24,7 +25,9 @@ const Menu = () => {
             </button>
           </div>
         </Link>
-      ))}
+      ))} */}
+
+      <MenuPage />
     </div>
   );
 };

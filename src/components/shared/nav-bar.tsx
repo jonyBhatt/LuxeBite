@@ -1,9 +1,16 @@
 "use client";
 import Image from "next/image";
 import { signOut, useSession } from "next-auth/react";
-import Link from "next/link";
 import { useEffect, useState } from "react";
+import Link from "next/link";
+import { ShoppingCart } from "lucide-react";
+
 import { Button } from "../ui/button";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 
 const Navbar = () => {
   const [isSticky, setIsSticky] = useState(false);
@@ -54,10 +61,32 @@ const Navbar = () => {
                 <div className="flex items-center">
                   {status === "authenticated" ? (
                     <>
-                      <p className="font-bold text-white text-2xl font-Inter">
-                        {session.user?.name}
-                      </p>
-                      <Button onClick={() => signOut()}>Log out</Button>
+                      <Popover>
+                        <PopoverTrigger asChild className="cursor-pointer">
+                          <p className="font-bold text-inherit text-2xl font-Inter">
+                            {session.user?.name}
+                          </p>
+                        </PopoverTrigger>
+                        <PopoverContent className="w-80">
+                          <div className="flex flex-col items-start gap-4 w-full">
+                            <Link
+                              href="/cart"
+                              className="border-b border-b-gray-500 w-full font-Inter pb-1 flex gap-1.5 items-center"
+                            >
+                              Cart <ShoppingCart />
+                            </Link>
+                            <Link
+                              href="/me"
+                              className="border-b border-b-gray-500 w-full font-Inter pb-1"
+                            >
+                              Profile
+                            </Link>
+                            <Button onClick={() => signOut()} size="lg">
+                              Log out
+                            </Button>
+                          </div>
+                        </PopoverContent>
+                      </Popover>
                     </>
                   ) : (
                     <>

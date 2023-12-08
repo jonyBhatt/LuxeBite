@@ -5,6 +5,7 @@ import {
   Footer,
   Hero,
   HowItWorks,
+  Menu,
   OrderNow,
   SubsCribe,
   TopRestaurants,
@@ -23,15 +24,7 @@ export default function Home() {
           <div className=" w-[20%] h-[20%] -z-10 absolute top-[50%] inset-x-0 pink__gradient  " />
           <TopRestaurants />
           {/** TODO: Testimonial */}
-          <div className="my-10 pt-12 flex justify-center items-center">
-            <Image
-              src="/image/photo-4.png"
-              alt="photo"
-              width={800}
-              height={800}
-              className="object-cover object-center"
-            />
-          </div>
+          <Menu />
           <Blogs />
           <SubsCribe />
         </div>
