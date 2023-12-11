@@ -1,5 +1,11 @@
+import { DashboardPage } from "@/components/shared/dashboard";
+
 const AdminDashboard = () => {
-  return <div className="text-white">Admin</div>;
+  return (
+    <div className="py-10">
+      <DashboardPage />
+    </div>
+  );
 };
 
 export default AdminDashboard;

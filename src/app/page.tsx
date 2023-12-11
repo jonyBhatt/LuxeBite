@@ -13,13 +13,14 @@ import {
 
 import MaxWidthWrapper from "@/utils/max-with-wrapper";
 import { Navbar } from "@/components/shared";
+import { ModeToggle } from "@/utils/mode-toggle";
 
 export default function Home() {
   return (
     <>
       <Navbar />
 
-      <MaxWidthWrapper>
+      <MaxWidthWrapper className="">
         <div className="py-20 relative">
           <Hero />
           <OrderNow />
@@ -32,6 +33,9 @@ export default function Home() {
           <SubsCribe />
         </div>
       </MaxWidthWrapper>
+      <div className="fixed top-1/2 ">
+        <ModeToggle />
+      </div>
       <Footer />
     </>
   );

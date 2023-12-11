@@ -8,7 +8,7 @@ import { ThemeProvider } from "@/utils/theme-provider";
 
 import { ModeToggle } from "@/utils/mode-toggle";
 import AuthProvider from "@/utils/auth-provider";
-import  { Toaster } from "react-hot-toast";
+import { Toaster } from "react-hot-toast";
 import { authOptions } from "@/utils/auth";
 import ClientProvider from "@/lib/query-client-provider";
 
@@ -38,14 +38,10 @@ export default async function RootLayout({
         >
           <AuthProvider session={session}>
             <ClientProvider>
-              <div>
-              </div>
+              <div></div>
               <main className="relative ">
                 {children}
                 <Toaster />
-                <div className="fixed top-1/2">
-                  <ModeToggle />
-                </div>
               </main>
             </ClientProvider>
           </AuthProvider>

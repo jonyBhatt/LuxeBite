@@ -9,7 +9,7 @@ export default async function AdminDashboardLayout({
     <section className="admin-bg font-Inter min-h-screen">
       <div className="flex gap-4 justify-between">
         <Sidebar />
-        <main className="flex flex-1">{children}</main>
+        <main className="w-full">{children}</main>
       </div>
     </section>
   );

@@ -10,7 +10,13 @@ interface MenuProps {
   Icon: JSX.Element;
 }
 
-const MenuLinkIconWrapper = ({ icon, className }: { className?: string }) => {
+const MenuLinkIconWrapper = ({
+  icon,
+  className,
+}: {
+  icon: any;
+  className: string;
+}) => {
   return <span className={cn(className)}>{icon}</span>;
 };
 
