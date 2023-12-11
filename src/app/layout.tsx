@@ -7,9 +7,8 @@ import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/utils/theme-provider";
 
 import { ModeToggle } from "@/utils/mode-toggle";
-import { Navbar } from "@/components/shared";
 import AuthProvider from "@/utils/auth-provider";
-import toast, { Toaster } from "react-hot-toast";
+import  { Toaster } from "react-hot-toast";
 import { authOptions } from "@/utils/auth";
 import ClientProvider from "@/lib/query-client-provider";
 
@@ -40,7 +39,6 @@ export default async function RootLayout({
           <AuthProvider session={session}>
             <ClientProvider>
               <div>
-                <Navbar />
               </div>
               <main className="relative ">
                 {children}

@@ -11,12 +11,13 @@ datasource db {
 }
 
 model User {
-  id            String    @id @default(auto()) @map("_id") @db.ObjectId
+  id            String     @id @default(auto()) @map("_id") @db.ObjectId
   name          String?
-  email         String?   @unique
+  email         String?    @unique
   password      String
   emailVerified DateTime?
   image         String?
+  wishlist      Wishlist[]
 }
 
 model Categories {
@@ -28,8 +29,7 @@ model Categories {
   slug        String  @unique
 
   products Product[]
-
-  createAt DateTime @default(now())
+  createAt DateTime  @default(now())
 }
 
 model Product {
@@ -47,11 +47,31 @@ model Product {
   createAt DateTime @default(now())
 }
 
+model Menu {
+  id           String  @id @default(auto()) @map("_id") @db.ObjectId
+  name         String
+  shortDescr   String
+  longDescr    String?
+  price        Float
+  sellingPrice Float?
+  image        String
+
+  category String?
+}
+
+model Wishlist {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+
+  user      User     @relation(fields: [userEmail], references: [email])
+  userEmail String   @unique // To be used to filter favorites that belong to the customer
+  menu      String[]
+}
+
 model Order {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
   createAt  DateTime @default(now())
   price     Float
   products  Json[]
   status    String
-  intent_id String?   @unique
+  intent_id String?  @unique
 }

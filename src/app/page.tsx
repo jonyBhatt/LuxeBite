@@ -12,10 +12,13 @@ import {
 } from "@/components/shared/home";
 
 import MaxWidthWrapper from "@/utils/max-with-wrapper";
+import { Navbar } from "@/components/shared";
 
 export default function Home() {
   return (
     <>
+      <Navbar />
+
       <MaxWidthWrapper>
         <div className="py-20 relative">
           <Hero />

@@ -40,19 +40,19 @@ const Navbar = () => {
       ) : (
         <>
           <div
-            className={` py-4 container   ${
+            className={` py-4 container  ${
               isSticky ? "fixed inset-x-0  top-4 z-50" : ""
             }  mx-auto w-full bg-slate-400 rounded-full bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-10 shadow-sm dark:shadow-zinc-400/50 `}
           >
             <div className="flex justify-between items-center">
               <div className="flex items-center gap-4">
-                <div className="relative w-16 h-8">
+                <Link href={'/'} className="relative w-16 h-8">
                   <Image src="/svg/logo.svg" alt="logo" fill className="" />
-                </div>
+                </Link>
                 <div className="hidden md:block">Search Bar</div>
               </div>
               <div className="flex items-center gap-2">
-                <span>Home</span>
+                <Link href="/">Home</Link>
                 <span>Products</span>
                 <span>Blog</span>
                 <Link href="/menu">Menu</Link>
