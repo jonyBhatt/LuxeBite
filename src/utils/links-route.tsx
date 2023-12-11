@@ -12,36 +12,36 @@ export const AdminRoutes = [
   {
     title: "Home",
     url: "/",
-    icon: Home,
+    icon: <Home />,
   },
   {
     title: "Dashboard",
     url: "/admin-dashboard",
-    icon: LayoutDashboard,
+    icon: <LayoutDashboard />,
   },
   {
     title: "Users",
-    url: "/admin-dashboard",
-    icon: User2,
+    url: "/admin-dashboard/users",
+    icon: <User2 />,
   },
   {
     title: "Orders",
     url: "/admin-dashboard/orders",
-    icon: Briefcase,
+    icon: <Briefcase />,
   },
   {
     title: "Delivery",
     url: "/admin-dashboard/delivery",
-    icon: Bike,
+    icon: <Bike />,
   },
   {
     title: "Menu",
     url: "/admin-dashboard/delivery",
-    icon: MoreHorizontal,
+    icon: <MoreHorizontal />,
   },
   {
     title: "Setting",
     url: "/admin-dashboard/delivery",
-    icon: Sliders,
+    icon: <Sliders />,
   },
 ];

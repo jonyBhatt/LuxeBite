@@ -6,10 +6,10 @@ export default async function AdminDashboardLayout({
   children: React.ReactNode;
 }) {
   return (
-    <section className="admin-bg p-2 min-h-screen">
-      <div className="flex ">
+    <section className="admin-bg font-Inter min-h-screen">
+      <div className="flex gap-4 justify-between">
         <Sidebar />
-        {children}
+        <main className="flex flex-1">{children}</main>
       </div>
     </section>
   );

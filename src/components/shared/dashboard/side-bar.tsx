@@ -1,42 +1,42 @@
-import { ChevronLeft } from "lucide-react";
-import { cn } from "@/lib/utils";
+
+
 import Image from "next/image";
-type Props = {
-  show?: boolean;
-  showSideBar?: () => void;
-};
-const Sidebar = ({ show, showSideBar }: Props) => {
+import React from "react";
+import MenuLink from "./menu-link";
+import { AdminRoutes } from "@/utils/links-route";
+
+
+const Sidebar = () => {
   return (
-    <aside
-      className={cn(
-        "py-2 px-4 fixed inset-y-0 left-0 transition-all duration-150 ease-out admin-side_bar shadow-lg w-[5rem] md:w-40"
-      )}
-    >
-      <ChevronLeft
-        className={`admin-bg  hidden md:block
-       rounded-full text-[#5E5E5E] shadow-lg
-       absolute -right-3 top-9 z-10 cursor-pointer 
-        ${!show && "rotate-180"}`}
-        size={32}
-        onClick={showSideBar}
-      />
-      <div className="flex flex-col gap-4 justify-between h-full">
-        <div className="flex items-center gap-2.5">
+    <aside className="px-4 py-2 admin-side_bar h-full min-h-screen w-50 shadow-md">
+      <div className="flex flex-col gap-6">
+        <div className="flex items-center xs:justify-center gap-4">
           <div>
             <Image
-              src="/image/h5"
-              alt="user image"
-              width={200}
-              height={200}
+              src="/image/h5.jpg"
+              alt="profile"
+              width={100}
+              height={100}
               className="object-cover rounded-full"
             />
           </div>
-          <div className=" flex-col gap-2 hidden md:flex">
-            <h4 className="font-bold font-Inter text-lg">Jackson Carter</h4>
-            <span className="text-sm text-muted-foreground leading-4">
+          <div className="hidden  md:flex flex-col gap-1.5">
+            <h2 className="text-sm lg:text-xl font-bold">John Doe</h2>
+            <span className="text-sm text-muted-foreground tracking-wider">
               Admin
             </span>
           </div>
+        </div>
+
+        <div className="flex items-center justify-center flex-col gap-8 hover:text-white">
+          {AdminRoutes.map((route) => (
+            <MenuLink
+              url={route.url}
+              Icon={route.icon}
+              title={route.title}
+              key={route.title}
+            />
+          ))}
         </div>
       </div>
     </aside>
