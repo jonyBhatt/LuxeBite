@@ -46,10 +46,10 @@ const Navbar = () => {
           >
             <div className="flex justify-between items-center">
               <div className="flex items-center gap-4">
-                <Link href={'/'} className="relative w-16 h-8">
+                <Link href={"/"} className="relative w-16 h-8">
                   <Image src="/svg/logo.svg" alt="logo" fill className="" />
                 </Link>
-                <div className="hidden md:block">Search Bar</div>
+                {/* <div className="hidden md:block">Search Bar</div> */}
               </div>
               <div className="flex items-center gap-2">
                 <Link href="/">Home</Link>
@@ -63,9 +63,18 @@ const Navbar = () => {
                     <>
                       <Popover>
                         <PopoverTrigger asChild className="cursor-pointer">
-                          <p className="font-bold text-inherit text-2xl font-Inter">
+                          {/* <p className="font-bold text-inherit text-2xl font-Inter">
                             {session.user?.name}
-                          </p>
+                          </p> */}
+                          <div>
+                            <Image
+                              src="/image/h5.jpg"
+                              alt="user"
+                              width={50}
+                              height={50}
+                              className="rounded-full"
+                            />
+                          </div>
                         </PopoverTrigger>
                         <PopoverContent className="w-80">
                           <div className="flex flex-col items-start gap-4 w-full">
@@ -81,6 +90,23 @@ const Navbar = () => {
                             >
                               Profile
                             </Link>
+
+                            {session.user.isAdmin && (
+                              <Link
+                                href="/admin-dashboard"
+                                className="border-b border-b-gray-500 w-full font-Inter pb-1"
+                              >
+                                Admin Dashboard
+                              </Link>
+                            )}
+
+                            <Link
+                              href="/order"
+                              className="border-b border-b-gray-500 w-full font-Inter pb-1"
+                            >
+                              Order
+                            </Link>
+
                             <Button onClick={() => signOut()} size="lg">
                               Log out
                             </Button>

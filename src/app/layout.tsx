@@ -5,8 +5,6 @@ import "./globals.css";
 
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/utils/theme-provider";
-
-import { ModeToggle } from "@/utils/mode-toggle";
 import AuthProvider from "@/utils/auth-provider";
 import { Toaster } from "react-hot-toast";
 import { authOptions } from "@/utils/auth";
@@ -38,7 +36,6 @@ export default async function RootLayout({
         >
           <AuthProvider session={session}>
             <ClientProvider>
-              <div></div>
               <main className="relative ">
                 {children}
                 <Toaster />

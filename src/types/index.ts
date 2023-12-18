@@ -1,9 +1,9 @@
 export type MenuType = {
   id: string,
   title: string,
-  description: string,
+  desc: string,
   price: number,
-  image: string,
+  img: string,
   category: string,
   prepType:string[]
 }
@@ -29,9 +29,9 @@ export type OrderType = {
   id: string;
   userEmail: string;
   price: number;
-  products: CartItemType[];
+  foods: CartItemType[];
   status: string;
-  createdAt: Date;
+  createAt: string;
   intent_id?: String;
 };
 

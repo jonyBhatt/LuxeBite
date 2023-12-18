@@ -1,12 +1,14 @@
 import prisma from "@/lib/db";
-import { NextResponse } from "next/server";
-
-export async function GET() {
+import { NextRequest, NextResponse } from "next/server";
+export const GET = async (req:NextRequest) => {
   try {
-    const cat = await prisma.categories.findMany();
-    return new NextResponse(JSON.stringify(cat), { status: 200 });
-  } catch (error: any) {
-    console.log(error);
-    return new NextResponse(JSON.stringify(error.message), { status: 500 });
+    const categories = await prisma.category.findMany();
+    return new NextResponse(JSON.stringify(categories), { status: 200 });
+  } catch (err) {
+    console.log(err);
+    return new NextResponse(
+      JSON.stringify({ message: "Something went wrong!" }),
+      { status: 500 }
+    );
   }
-}
+};

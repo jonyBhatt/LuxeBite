@@ -1,7 +1,23 @@
-import { AuthOptions } from "next-auth";
+import { AuthOptions, User, getServerSession } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { PrismaAdapter } from "@auth/prisma-adapter";
 import prisma from "@/lib/db";
+
+declare module "next-auth" {
+  interface Session {
+    user: User & {
+      isAdmin: Boolean;
+      id: String;
+    };
+  }
+}
+
+declare module "next-auth/jwt" {
+  interface JWT {
+    isAdmin: Boolean;
+    id: String;
+  }
+}
 
 export const authOptions = {
   adapter: PrismaAdapter(prisma),
@@ -67,9 +83,19 @@ export const authOptions = {
   },
   callbacks: {
     async session({ session, token, user }) {
+      if (token) {
+        session.user.isAdmin = token.isAdmin;
+      }
       return session;
     },
     async jwt({ token, user, account }) {
+      const admin = await prisma.user.findUnique({
+        where: {
+          email: token.email!,
+        },
+      });
+      token.isAdmin = admin?.isAdmin!;
+      token.id = admin?.id!;
       return token;
     },
   },
@@ -79,3 +105,5 @@ export const authOptions = {
     },
   },
 } satisfies AuthOptions;
+
+export const authSession = () => getServerSession(authOptions);
