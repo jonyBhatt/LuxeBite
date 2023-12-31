@@ -1,12 +1,11 @@
 export type MenuType = {
-  id: string,
-  title: string,
-  desc: string,
-  price: number,
-  img: string,
-  category: string,
-  prepType:string[]
-}
+  id: string;
+  title: string;
+  desc: string;
+  price: number;
+  img: string;
+  catSlug: string;
+};
 export type ShortMenuType = {
   id?: string;
   title?: string;
@@ -22,7 +21,7 @@ export type ProductType = {
   desc?: string;
   img?: string;
   price: number;
-  options?: { title: string; additionalPrice: number }[];
+  quantity?: string;
 };
 
 export type OrderType = {

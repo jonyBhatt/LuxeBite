@@ -55,7 +55,7 @@ const Navbar = () => {
                 <Link href="/">Home</Link>
                 <span>Products</span>
                 <span>Blog</span>
-                <Link href="/menu">Menu</Link>
+                <Link href="/food">Menu</Link>
               </div>
               <div className="flex items-center gap-4">
                 <div className="flex items-center">

@@ -51,7 +51,7 @@
 
 @layer base {
   * {
-    @apply border-border;
+    @apply border-border scroll-smooth;
   }
   body {
     @apply bg-background text-foreground;
@@ -85,17 +85,17 @@
   .text-gradient {
     @apply bg-gradient-to-r from-fuchsia-800 to-purple-500 bg-clip-text text-transparent;
   }
-  .text_center{
+  .text_center {
     text-align: -webkit-center;
   }
 
-  .admin-bg{
+  .admin-bg {
     background-color: #161616;
   }
-  .admin-side_bar{
-    background-color: #1C1C1C;
+  .admin-side_bar {
+    background-color: #1c1c1c;
   }
-  .admin-active_link{
-    background-color: #2C2C2C;
+  .admin-active_link {
+    background-color: #2c2c2c;
   }
 }

@@ -6,5 +6,11 @@
 >  subtotal discount service-fee delivery-fee  total
 
 ## Done 
-** Menu page ui **
-** Single menu done **
+** Authentication **
+** Menu **
+# Order placement (running)
+
+## Coming soon
+> search filters
+> payment options
+> Dashboard
