@@ -7,6 +7,7 @@ import {
   Bike,
   Sliders,
   Home,
+  UtensilsCrossed,
 } from "lucide-react";
 export const AdminRoutes = [
   {
@@ -25,23 +26,25 @@ export const AdminRoutes = [
     icon: <User2 />,
   },
   {
+    title: "Food",
+    url: "/admin-dashboard/food",
+    icon: <UtensilsCrossed />,
+  },
+  {
     title: "Orders",
     url: "/admin-dashboard/orders",
     icon: <Briefcase />,
   },
+
   {
     title: "Delivery",
     url: "/admin-dashboard/delivery",
     icon: <Bike />,
   },
-  {
-    title: "Menu",
-    url: "/admin-dashboard/delivery",
-    icon: <MoreHorizontal />,
-  },
+
   {
     title: "Setting",
-    url: "/admin-dashboard/delivery",
+    url: "/admin-dashboard/settings",
     icon: <Sliders />,
   },
 ];

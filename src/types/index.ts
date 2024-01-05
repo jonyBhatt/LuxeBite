@@ -22,6 +22,7 @@ export type ProductType = {
   img?: string;
   price: number;
   quantity?: string;
+  catSlug?: string;
 };
 
 export type OrderType = {

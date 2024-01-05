@@ -20,13 +20,14 @@ import { Input } from "@/components/ui/input";
 import { signUpSchema } from "@/lib/validation/sign-up-validation";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
+import UploadFile from "@/utils/upload-button";
 
 const SignUpForm = () => {
-  const router= useRouter()
+  const router = useRouter();
   const form = useForm<z.infer<typeof signUpSchema>>({
     resolver: zodResolver(signUpSchema),
     defaultValues: {
-      name:"",
+      name: "",
       email: "",
       password: "",
     },
@@ -41,7 +42,7 @@ const SignUpForm = () => {
       }
 
       form.reset();
-      router.push("/sign-in")
+      router.push("/sign-in");
     } catch (error: any) {
       console.log(error);
       toast.error(error.message);
@@ -128,6 +129,7 @@ const SignUpForm = () => {
               </FormItem>
             )}
           />
+
           <Button type="submit" size="lg">
             Register
           </Button>

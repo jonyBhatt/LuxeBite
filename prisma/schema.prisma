@@ -42,7 +42,6 @@ model Product {
   img        String?
   price      String
   isFeatured Boolean  @default(false)
-  // options    Json[]
   category   Category @relation(fields: [catSlug], references: [slug])
   catSlug    String
 }

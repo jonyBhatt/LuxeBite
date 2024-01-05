@@ -1,12 +1,12 @@
 import { z } from "zod";
 
-
-
-export const signUpSchema = z.object({
+export const signUpSchema = z
+  .object({
     name: z.string().min(2, { message: "Name cannot be empty" }),
     email: z
       .string()
       .email({ message: "It's not a email. Give a perfect email" }),
+    image: z.string().optional(),
     password: z.string().min(4, {
       message: "password must be at least 4 characters.",
     }),

@@ -27,7 +27,7 @@ const MenuLink = ({ url, title, Icon }: MenuProps) => {
       href={url}
       className={cn(
         pathname === url ? "admin-active_link cursor-default" : "",
-        "flex transition-all duration-150 ease-in-out group hover:admin-active_link hover:text-white items-center gap-4 rounded-full md:rounded-md  md:p-4 w-12 h-12 md:justify-start justify-center  md:w-full"
+        "flex transition-all duration-150 ease-in-out group hover:admin-active_link hover:text-white items-center gap-4 rounded-full md:rounded-md  md:p-4  md:justify-start   w-full"
       )}
     >
       <MenuLinkIconWrapper

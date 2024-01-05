@@ -1,22 +1,19 @@
-
-
 import Image from "next/image";
 import React from "react";
 import MenuLink from "./menu-link";
 import { AdminRoutes } from "@/utils/links-route";
 
-
 const Sidebar = () => {
   return (
-    <aside className="px-4 py-2 admin-side_bar h-full min-h-screen w-50 shadow-md">
-      <div className="flex flex-col gap-6">
+    <aside className="px-4 py-2 admin-side_bar h-full min-h-screen w-52 shadow-md">
+      <div className="flex flex-col gap-6 w-full items-start">
         <div className="flex items-center xs:justify-center gap-4">
           <div>
             <Image
               src="/image/h5.jpg"
               alt="profile"
-              width={100}
-              height={100}
+              width={50}
+              height={50}
               className="object-cover rounded-full"
             />
           </div>
@@ -28,7 +25,7 @@ const Sidebar = () => {
           </div>
         </div>
 
-        <div className="flex items-center justify-center flex-col gap-8 hover:text-white">
+        <div className="flex items-start w-full flex-col gap-4 hover:text-white">
           {AdminRoutes.map((route) => (
             <MenuLink
               url={route.url}
