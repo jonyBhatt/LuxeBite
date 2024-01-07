@@ -2,12 +2,10 @@ import {
   LayoutDashboard,
   User2,
   Briefcase,
-  MoreHorizontal,
-  Bell,
-  Bike,
   Sliders,
   Home,
   UtensilsCrossed,
+  BadgeDollarSign,
 } from "lucide-react";
 export const AdminRoutes = [
   {
@@ -37,9 +35,9 @@ export const AdminRoutes = [
   },
 
   {
-    title: "Delivery",
-    url: "/admin-dashboard/delivery",
-    icon: <Bike />,
+    title: "Payments",
+    url: "/admin-dashboard/payment",
+    icon: <BadgeDollarSign />,
   },
 
   {

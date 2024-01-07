@@ -1,8 +1,7 @@
-
 import { NextRequest, NextResponse } from "next/server";
 
-import { authSession } from '@/utils/auth';
-import  prisma  from '@/lib/db';
+import { authSession } from "@/utils/auth";
+import prisma from "@/lib/db";
 
 // FETCH ALL ORDERS
 export const GET = async (req: NextRequest) => {
@@ -16,7 +15,7 @@ export const GET = async (req: NextRequest) => {
       }
       const orders = await prisma.order.findMany({
         where: {
-          userEmail: session.user.email!,
+          userId: session.user.id!,
         },
       });
       return new NextResponse(JSON.stringify(orders), { status: 200 });
@@ -38,12 +37,23 @@ export const GET = async (req: NextRequest) => {
 // CREATE ORDER
 export const POST = async (req: NextRequest) => {
   const session = await authSession();
+  const body = await req.json();
+  const { products, totalPrice, totalItems } = body;
 
   if (session) {
     try {
-      const body = await req.json();
       const order = await prisma.order.create({
-        data: body,
+        data: {
+          price: totalPrice,
+          products,
+          status: "Pending",
+          quantity: totalItems.toString(),
+          user: {
+            connect: {
+              email: session.user.email!,
+            },
+          },
+        },
       });
       return new NextResponse(JSON.stringify(order), { status: 201 });
     } catch (err) {

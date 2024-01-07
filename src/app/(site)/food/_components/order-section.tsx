@@ -18,6 +18,7 @@ const OrderFood = ({ product }: { product: ProductType }) => {
       quantity: quantity,
       title: product.title,
     });
+    console.log(product, price, quantity);
   };
 
   useEffect(() => {

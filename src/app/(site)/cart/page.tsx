@@ -13,9 +13,43 @@ import { MinusIcon, PlusIcon } from "../food/[id]/page";
 import { Trash2Icon } from "lucide-react";
 import { CartData } from "@/lib/data/cart-data";
 import { useCartStore } from "@/utils/store";
+import axios from "axios";
+import toast from "react-hot-toast";
+import Link from "next/link";
+import { useState } from "react";
 
 export default function Cart() {
-  const { products, totalItems, totalPrice, removeFromCart } = useCartStore();
+  const [order, setOrder] = useState();
+  const {
+    products,
+    totalItems,
+    totalPrice,
+    removeFromCart,
+    increaseQuantity,
+    decreaseQuantity,
+  } = useCartStore();
+  const handleOrder = async () => {
+    try {
+      // Assuming your order API endpoint is '/api/order'
+      const response = await axios.post("/api/orders", {
+        products,
+        totalItems,
+        totalPrice,
+      });
+
+      // Handle the response, e.g., show a success message
+      console.log("Order placed successfully:", response.data);
+      setOrder(response.data);
+      toast.success("Order placed successfully");
+
+      // Optionally, you can clear the cart after successful order
+      // clearCart(); // You need to implement the clearCart function in your useCartStore
+    } catch (error: any) {
+      // Handle the error, e.g., show an error message
+      toast.error("Error placing order");
+      console.error("Error placing order:", error.message);
+    }
+  };
   return (
     <main className="container py-8">
       <Table>
@@ -59,11 +93,19 @@ export default function Cart() {
               <TableCell className="font-medium">{item.title}</TableCell>
               <TableCell>
                 <div className="flex items-center gap-2">
-                  <Button size="icon" variant="outline">
+                  <Button
+                    size="icon"
+                    variant="outline"
+                    onClick={() => decreaseQuantity(item.id)}
+                  >
                     <MinusIcon className="w-4 h-4" />
                   </Button>
                   <span>{totalItems}</span>
-                  <Button size="icon" variant="outline">
+                  <Button
+                    size="icon"
+                    variant="outline"
+                    onClick={() => increaseQuantity(item.id)}
+                  >
                     <PlusIcon className="w-4 h-4" />
                   </Button>
                 </div>
@@ -84,25 +126,21 @@ export default function Cart() {
         </TableBody>
       </Table>
       <div className="flex flex-col gap-4 mt-6">
-        <div className="flex justify-between">
-          <span>Discount:</span>
-          <span>- $0</span>
-        </div>
-        <div className="flex justify-between">
-          <span>Service Fee:</span>
-          <span>$10</span>
-        </div>
-        <div className="flex justify-between">
-          <span>Delivery Fee:</span>
-          <span>$5</span>
-        </div>
-        <div className="flex justify-between font-bold">
-          <span>Total:</span>
-          <span>$ {totalPrice}</span>
-        </div>
-        <Button className="mt-4" size="lg">
-          Checkout
-        </Button>
+        {order ? (
+          <>
+            <Link href={`/payments/${order.id}`}>
+              <Button className="mt-4 w-full" size="lg">
+                Checkout
+              </Button>
+            </Link>
+          </>
+        ) : (
+          <>
+            <Button className="mt-4" size="lg" onClick={handleOrder}>
+              Order
+            </Button>
+          </>
+        )}
       </div>
     </main>
   );

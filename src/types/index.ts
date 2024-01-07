@@ -29,9 +29,9 @@ export type OrderType = {
   id: string;
   userEmail: string;
   price: number;
-  foods: CartItemType[];
+  products: CartItemType[];
   status: string;
-  createAt: string;
+  createdAt: string;
   intent_id?: String;
 };
 
@@ -50,7 +50,18 @@ export type CartType = {
   totalPrice: number;
 };
 
+export type paymentType = {
+  id: string;
+  name: string;
+  orderId: string;
+  number: string;
+  address: string;
+  createdAt: string;
+};
+
 export type ActionTypes = {
   addToCart: (item: CartItemType) => void;
   removeFromCart: (item: CartItemType) => void;
+  increaseQuantity: (itemId: string) => void;
+  decreaseQuantity: (itemId: string) => void;
 };
